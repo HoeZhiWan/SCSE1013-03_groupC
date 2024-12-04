@@ -11,7 +11,7 @@ __Group Member__ : Tang Yu Shan<br>
 Roles : Module 1 & Proposal on introduction & explaination
 
 __Group Member__ : Bong Zi Shan<br>
-Roles : Module 2 & documentation
+Roles : Module 2 & Documentation
 
 __Group Member__ : Md Abdullah<br>
 Roles : Module 4
