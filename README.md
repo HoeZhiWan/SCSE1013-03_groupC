@@ -5,7 +5,7 @@ This program motivates individual to monitor, analyze and improve their recyclin
 
 ## Team Member Roles and Responsibilities 
 __Group Leader__ : Hoe Zhi Wan<br>
-Roles: Module 3 & Proposal on IPO breakdown
+Roles : Module 3 & Proposal on IPO breakdown
 
 __Group Member__ : Tang Yu Shan<br>
 Roles : Module 1 & Proposal on introduction & explaination
