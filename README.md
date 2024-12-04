@@ -18,4 +18,14 @@ Roles : Module 4
 
 
 ## How to Run :
-_Start the program :_
+_1) Clone the Respository :_
+git clone https://github.com/HoeZhiWan/SCSE1013-03_groupC.git        
+cd SCSE1013-03_groupC
+
+_2) Open the program in VS code_
+
+_3) Select the SCSE1013-03_groupC folder_
+
+
+
+
