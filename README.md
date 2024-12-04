@@ -4,16 +4,16 @@ This program motivates individual to monitor, analyze and improve their recyclin
 > It provide an interface of monthly report and recycling improvement suggestions about environment impact analysis of user based on their waste and statistics of recycling activities made by user.
 
 ## Team Member Roles and Responsibilities 
-__Group Leader__ : Hoe Zhi Wan
+__Group Leader__ : Hoe Zhi Wan 
 Roles: Module 3 & Proposal on IPO breakdown
 
-__Group Member__ : Tang Yu Shan
+__Group Member__ : Tang Yu Shan 
 Roles : Module 1 & Proposal on introduction & explaination
 
-__Group Member__ : Bong Zi Shan
+__Group Member__ : Bong Zi Shan 
 Roles : Module 2 & documentation
 
-__Group Member__ : Md Abdullah
+__Group Member__ : Md Abdullah 
 Roles : Module 4
 
 
