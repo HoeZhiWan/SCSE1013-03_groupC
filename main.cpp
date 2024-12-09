@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -28,8 +29,10 @@ void function2() { // change the name and datta type of function
 //          Matrik Number: A24CS0082                                 *
 // *******************************************************************
 
-void function3() { // change the name and datta type of function
-    cout << "Function 3" << endl;
+void function3(string entryType[], double entryWeight[], string entryDate[]) { // change the name and datta type of function
+    for (int i=0; i<8; i++) {
+        cout << entryType[i] << " " << entryWeight[i] << " " << entryDate[i] << endl;
+    }
 }
 
 // *******************************************************************
@@ -57,6 +60,12 @@ void displayMenu() {
 }
 
 int main() {
+
+    // Dummy Data
+    string entryType[] = {"Plastic", "Glass", "Glass", "Plastic", "Paper", "Paper", "Metal", "Glass"};
+    double entryWeight[] = {0.5, 2.2, 1.6, 0.8, 0.4, 0.7, 2.3, 0.8};
+    string entryDate[] = {"2024-12-01", "2024-12-02", "2024-12-02", "2024-12-03", "2024-12-04", "2024-12-04", "2024-12-06", "2024-12-07"};
+
     int choice;
 
     do{
@@ -72,7 +81,7 @@ int main() {
 
             case 2: cout << "\n***** Module 2 ******" << endl;
                     function2();
-                    function3();
+                    function3(entryType, entryWeight, entryDate);
                     cout << "***** Module 2 ******\n" << endl;
                     break;
 
