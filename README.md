@@ -31,7 +31,6 @@ cd <repository-folder>
 _1) Use the following command to compile the program:_
 g++ -o program_name source_file.cpp
 
-
 _2) Run the Program:_
 #### On Window:
 program_name.exe
