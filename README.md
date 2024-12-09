@@ -29,7 +29,7 @@ cd <repository-folder>
 
 ### Step 2: Build and Run the Program
 _1) Use the following command to compile the program:_
-g++ -o program_name source_file.cpp
+g++ -o main.cpp
 
 _2) Run the Program:_
 #### On Window:
