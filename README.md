@@ -33,9 +33,9 @@ Roles : Module 4
 **g++ -o main main.cpp**
 
 2) Run the Program:
-##### On Window: 
+On Window:<br> 
 **main.exe**
-##### On macOS: 
+On macOS:<br>
 **./main**
 
 
