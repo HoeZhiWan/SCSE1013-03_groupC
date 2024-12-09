@@ -32,7 +32,7 @@ cd SCSE1013-03_groupC
 _1) Use the following command to compile the program:_
 g++ -o main main.cpp
 
-_2) Run the Program:
+_2) Run the Program:_
 ##### On Window:
 main.exe
 ##### On macOS:
