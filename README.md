@@ -32,11 +32,11 @@ Roles : Module 4
 1) Use the following command to compile the program:<br>
 **g++ -o main main.cpp**
 
-2) Run the Program:
+2) Run the Program:<br>
 On Window:<br> 
-**main.exe**
+**main.exe** <br>
 On macOS:<br>
-**./main**
+**./main** <br>
 
 
 
