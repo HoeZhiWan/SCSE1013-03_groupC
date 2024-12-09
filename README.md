@@ -33,9 +33,9 @@ g++ -o program_name source_file.cpp
 
 
 _2) Run the Program:_
-On Window:
+> On Window:
 program_name.exe
-On macOS:
+> On macOS:
 ./program_name
 
 
