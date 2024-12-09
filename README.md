@@ -17,14 +17,27 @@ __Group Member__ : Md Abdullah<br>
 Roles : Module 4
 
 
-## How to Run :
-_1) Clone the Respository :_
-git clone https://github.com/HoeZhiWan/SCSE1013-03_groupC.git        
-cd SCSE1013-03_groupC
 
-_2) Open the program in VS code_
+## Instructions to Run the Program
+### Step 1 ：Clone the Repository
+1) Open your **terminal or command prompt**.
 
-_3) Select the SCSE1013-03_groupC folder_
+2) Clone the Respository by running:<br> 
+**git clone https://github.com/HoeZhiWan/SCSE1013-03_groupC.git**
+
+3) Navigate to the project directory: <br>
+**cd SCSE1013-03_groupC**
+
+### Step 2: Build and Run the Program
+1) Use the following command to compile the program:<br>
+**g++ -o main main.cpp**
+
+2) Run the Program:<br>
+On Window:<br> 
+**main.exe** <br>
+On macOS:<br>
+**./main** <br>
+
 
 
 
