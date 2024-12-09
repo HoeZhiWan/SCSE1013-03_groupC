@@ -20,9 +20,11 @@ Roles : Module 4
 ## How to Run :
 ### Step 1 ：Clone the Repository
 _1) Open your terminal or command prompt._
+
 _2) Clone the Respository by running:_
 git clone <https://github.com/HoeZhiWan/SCSE1013-03_groupC.git> 
-_3) Navigate to the project directory:
+
+_3) Navigate to the project directory:_
 cd <repository-folder>
 
 ### Step 2: Build and Run the Program
