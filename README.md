@@ -22,8 +22,9 @@ Roles : Module 4
 ### Step 1 ：Clone the Repository
 _1) Open your terminal or command prompt._
 
-_2) Clone the Respository by running:_
+_2) Clone the Respository by running:_ 
 git clone https://github.com/HoeZhiWan/SCSE1013-03_groupC.git
+
 _3) Navigate to the project directory:_
 cd SCSE1013-03_groupC
 
