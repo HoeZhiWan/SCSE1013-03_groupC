@@ -20,22 +20,22 @@ Roles : Module 4
 
 ## Instructions to Run the Program
 ### Step 1 ：Clone the Repository
-_1) Open your terminal or command prompt._
+1) Open your terminal or command prompt.
 
-_2) Clone the Respository by running:_ <br> 
+2) Clone the Respository by running:<br> 
 git clone https://github.com/HoeZhiWan/SCSE1013-03_groupC.git
 
-_3) Navigate to the project directory:_ <br>
+3) Navigate to the project directory: <br>
 cd SCSE1013-03_groupC
 
 ### Step 2: Build and Run the Program
-_1) Use the following command to compile the program:_ <br>
+1) Use the following command to compile the program:<br>
 g++ -o main main.cpp
 
-_2) Run the Program:_
-##### On Window: <br>
+2) Run the Program:
+##### On Window: 
 main.exe
-##### On macOS: <br>
+##### On macOS: 
 ./main
 
 
