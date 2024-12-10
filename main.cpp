@@ -9,8 +9,34 @@ using namespace std;
 //          Matrik Number: A24CS0199                                 *
 // *******************************************************************
 
-void function1() { // change the name and datta type of function
-    cout << "Function 1" << endl;
+void wasteInput(int entry)
+ {
+    string type[entry],date[entry];
+    double weight[entry];
+    int i;
+    for(i=0;i<entry;i++)
+    {
+    
+    cout<<"Enter material type (paper/glass/metal/plastic): ";
+    cin >>type[i];
+        while(type[i]!="paper"&&type[i]!="glass"&& type[i]!="metal"&&type[i]!="plastic")
+        {
+        cout<<"Invalid material type! Please enter again! "<<endl;
+        cout<<"Enter material type (paper/glass/metal/plastic): ";
+        cin>>type[i];
+        }
+
+    cout<<"Enter weight(kg)/volume(L): ";
+    cin>> weight[i];
+    cout<<"Enter date(YYYY-MM-DD):";
+    cin >>date[i];
+
+    string uniqueID;
+    uniqueID = type[i] + "_" + static_cast<string>(weight[i])+ "_" +date[i];
+    cout<< "ID: "<<uniqueID<<endl;
+    }
+
+    cout<<"Entry sucessfully saved!"<<endl;
 }
 
 // *******************************************************************
@@ -75,7 +101,7 @@ int main() {
         switch(choice) {
             
             case 1: cout << "\n***** Module 1 ******" << endl;
-                    function1(entryTyepe,entryWeight,entryDate);
+                    function1(entryType,entryWeight,entryDate);
                     cout << "***** Module 1 ******\n" << endl;
                     break;
 
