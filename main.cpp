@@ -81,7 +81,7 @@ void function4() { // change the name and datta type of function
 // *******************************************************************
 
 void displayMenu() {
-    cout << "1. " << endl;
+    cout << "1. Create an entry." << endl;
     cout << "2. " << endl;
     cout << "3. " << endl;
     cout << "4. Exit" << endl;
