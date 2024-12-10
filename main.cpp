@@ -50,9 +50,7 @@ void wasteInput(string type[],double weight[],string date[], int &entryCount)
 //          Student Name: Bong Zi Shan                               *
 //          Matrik Number: A24CS0231                                 *
 // *******************************************************************
-void calculateTotals(int entryCount, string type[], double weight[], double &paperWeight, double &glassWeight, 
-               double &metalWeight, double &plasticWeight, int &paperCount, int &glassCount, 
-               int &metalCount, int &plasticCount, double &totalWeight)
+void calculateTotals(int entryCount, string type[], double weight[], double &paperWeight, double &glassWeight,double &metalWeight, double &plasticWeight, int &paperCount, int &glassCount,int &metalCount, int &plasticCount, double &totalWeight)
 {
     paperWeight = glassWeight = metalWeight = plasticWeight = 0;
     paperCount = glassCount = metalCount = plasticCount = 0;
@@ -83,15 +81,12 @@ void calculateTotals(int entryCount, string type[], double weight[], double &pap
     }
 }
 
-void displayResults(int entryCount, string type[], double weight[], string date[],
-                    double paperWeight, double glassWeight, double metalWeight, double plasticWeight,
-                    double totalWeight,int paperCount, int glassCount, int metalCount, 
-             int plasticCount) 
+void displayResults(int entryCount, string type[], double weight[], string date[],double paperWeight, double glassWeight, double metalWeight, double plasticWeight,double totalWeight,int paperCount, int glassCount, int metalCount,int plasticCount) 
 {
-    cout << "\n----------------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
+    cout << "\n---------------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
     cout <<setw(5) << "Date" << setw(16) << "Material" << setw(25) << "Weight(kg)/Volume(L)" << setw(16) << "Category"<<setw(27)<<"Materials in Category"
          << setw(36) << "Weights in each Category(kg)/(L)" << setw(30) << "Recycling Percentage(%)" << endl;
-    cout << "----------------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
+    cout << "---------------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
 
     for (int i = 0; i < entryCount; i++) {
         int categoryCount = 0;
@@ -137,7 +132,7 @@ void displayResults(int entryCount, string type[], double weight[], string date[
              << setw(25) << categoryTotal
              << setw(35) << fixed<<setprecision(2) << recyclingPercentage<< endl;
     }
-    cout << "----------------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
+    cout << "---------------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
     cout << "Total Weight of All Materials: " << totalWeight << " kg\n";
 }
 
@@ -202,8 +197,7 @@ int main() {
 
             case 2: cout << "\n***** Module 2 ******" << endl;
                     calculateTotals(entryCount, entryType, entryWeight, paperWeight, glassWeight, metalWeight, plasticWeight,paperCount, glassCount, metalCount, plasticCount, totalWeight);
-                   displayResults(entryCount, entryType, entryWeight, entryDate, paperWeight, glassWeight, metalWeight, plasticWeight, totalWeight,paperCount, glassCount, metalCount, plasticCount);
-
+                    displayResults(entryCount, entryType, entryWeight, entryDate, paperWeight, glassWeight, metalWeight, plasticWeight, totalWeight,paperCount, glassCount, metalCount, plasticCount);
                     cout << "***** Module 2 ******\n" << endl;
                     break;
 
