@@ -29,10 +29,9 @@ void wasteInput(int entry,string type[],double weight[],string date[])
         string uniqueID;
         uniqueID = type[i] + "_" + to_string(weight[i])+ "_" +date[i];
         cout<< "ID: "<<uniqueID<<endl;
-
-        cout<<"Entry sucessfully saved!"<<endl;
-
     }
+    cout<<"Entry sucessfully saved!"<<endl;
+
 
 }
 
