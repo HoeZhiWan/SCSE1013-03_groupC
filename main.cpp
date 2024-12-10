@@ -202,8 +202,7 @@ int main() {
 
             case 2: cout << "\n***** Module 2 ******" << endl;
                     calculateTotals(entryCount, entryType, entryWeight, paperWeight, glassWeight, metalWeight, plasticWeight,paperCount, glassCount, metalCount, plasticCount, totalWeight);
-                   displayResults(entryCount, entryType, entryWeight, entryDate, paperWeight, glassWeight, metalWeight, plasticWeight, totalWeight,paperCount, glassCount, metalCount, plasticCount);
-
+                    displayResults(entryCount, entryType, entryWeight, entryDate, paperWeight, glassWeight, metalWeight, plasticWeight, totalWeight,paperCount, glassCount, metalCount, plasticCount);
                     cout << "***** Module 2 ******\n" << endl;
                     break;
 
