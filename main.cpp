@@ -20,7 +20,7 @@ void function1() { // change the name and datta type of function
 // *******************************************************************
 
 void function2() { // change the name and datta type of function
-    cout << "Function 2" << endl;
+    cout << "Function gfhkfh" << endl;
 }
 
 // *******************************************************************
