@@ -27,7 +27,10 @@ void wasteInput(string type[],double weight[],string date[], int &entryCount)
         cout<<"Enter date(YYYY-MM-DD): ";
         cin>>date[entryCount];
 
-        cout<<"Entry " << entryCount << " sucessfully saved!"<<endl;
+        cout<<"Entry " << entryCount << " sucessfully saved! "<<endl;
+        string uniqueID;
+        uniqueID = type[entryCount] + "_" + to_string(weight[entryCount])+ "_" +date[entryCount];
+        cout<< "ID: "<<uniqueID<<endl;
 
         entryCount += 1;
 

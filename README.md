@@ -28,17 +28,16 @@ Roles : Module 4
 3) Navigate to the project directory: <br>
 **cd SCSE1013-03_groupC**
 
-### Step 2: Build and Run the Program
-1) Use the following command to compile the program:<br>
-**g++ -o main main.cpp**
+### Step 2: Open VS Code
 
-2) Run the Program:<br>
-On Window:<br> 
-**main.exe** <br>
-On macOS:<br>
-**./main** <br>
+### Step 3: Clone the Respository in VS Code
+1) Open Command Palette:
+Press  *Ctrl + Shift + P* (Windows/Linux) <br>
+or *Cmd + Shift* (Mac)
 
-
-
+2) Search for **"Git Clone"**
+3) Paste the Repository URL
+4) Choose a Folder on local system where the respository will be cloned
+5) Open it from the folder saved
 
 
