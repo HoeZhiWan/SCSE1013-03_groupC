@@ -9,30 +9,37 @@ using namespace std;
 //          Matrik Number: A24CS0199                                 *
 // *******************************************************************
 
-void wasteInput(int entry,string type[],double weight[],string date[])
+void wasteInput(string type[],double weight[],string date[], int &entryCount)
 {
-    for(int i=0;i<entry;i++)
+    while(true)
     {
         cout<<"Enter material type (paper/glass/metal/plastic): ";
-        cin >>type[i];
-        while(type[i]!="paper" && type[i]!="glass" && type[i]!="metal" && type[i]!="plastic")
+        cin >> type[entryCount];
+        while(type[entryCount]!="paper" && type[entryCount]!="glass" && type[entryCount]!="metal" && type[entryCount]!="plastic")
         {
             cout<<"Invalid material type! Please enter again! "<<endl;
             cout<<"Enter material type (paper/glass/metal/plastic): ";
-            cin>>type[i];
+            cin>>type[entryCount];
         }
         cout<<"Enter weight(kg)/volume(L): ";
-        cin>> weight[i];
-        cout<<"Enter date(YYYY-MM-DD):";
-        cin >>date[i];
+        cin>> weight[entryCount];
+        cout<<"Enter date(YYYY-MM-DD): ";
+        cin>>date[entryCount];
 
-        string uniqueID;
-        uniqueID = type[i] + "_" + to_string(weight[i])+ "_" +date[i];
-        cout<< "ID: "<<uniqueID<<endl;
+        cout<<"Entry " << entryCount << " sucessfully saved!"<<endl;
+
+        entryCount += 1;
+
+        char input=' ';
+
+        while (input!='Y' && input!='N') {
+            cout << "Do you wish to add another entry? (Y/N): ";
+            cin >> input;
+        }
+        if (input=='N') {
+            break;
+        }
     }
-    cout<<"Entry sucessfully saved!"<<endl;
-
-
 }
 
 // *******************************************************************
@@ -42,7 +49,7 @@ void wasteInput(int entry,string type[],double weight[],string date[])
 // *******************************************************************
 
 void function2() { // change the name and datta type of function
-    cout << "Function gfhkfh" << endl;
+    cout << "Function 2" << endl;
 }
 
 // *******************************************************************
@@ -84,12 +91,11 @@ void displayMenu() {
 int main() {
 
     // Dummy Data
-    int entry;
-    cout<<"How mant enrty you want?"<<endl;
-    cin>>entry;
-    string entryType[entry];
-    string entryDate[entry];
-    double entryWeight[entry];
+    const int MAX_ENTRIES = 1024;
+    string entryType[MAX_ENTRIES] = {"Plastic", "Glass", "Glass", "Plastic", "Paper", "Paper", "Metal", "Glass"};
+    double entryWeight[MAX_ENTRIES] = {0.5, 2.2, 1.6, 0.8, 0.4, 0.7, 2.3, 0.8};
+    string entryDate[MAX_ENTRIES] = {"2024-12-01", "2024-12-02", "2024-12-02", "2024-12-03", "2024-12-04", "2024-12-04", "2024-12-06", "2024-12-07"};
+    int entryCount = 8;
 
     int choice;
 
@@ -100,7 +106,7 @@ int main() {
         switch(choice) {
             
             case 1: cout << "\n***** Module 1 ******" << endl;
-                    wasteInput(entry,entryType,entryWeight,entryDate);
+                    wasteInput(entryType, entryWeight, entryDate, entryCount);
                     cout << "***** Module 1 ******\n" << endl;
                     break;
 
