@@ -75,7 +75,7 @@ int main() {
         switch(choice) {
             
             case 1: cout << "\n***** Module 1 ******" << endl;
-                    function1();
+                    function1(entryTyepe,entryWeight,entryDate);
                     cout << "***** Module 1 ******\n" << endl;
                     break;
 
