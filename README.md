@@ -32,8 +32,8 @@ Roles : Module 4
 
 ### Step 3: Clone the Respository in VS Code
 1) Open Command Palette:
-Press > Ctrl + Shift + P (Windows/Linux) <br>
-or > Cmd + Shift (Mac)
+Press  *Ctrl + Shift + P* (Windows/Linux) <br>
+or *Cmd + Shift* (Mac)
 
 2) Search for **"Git Clone"**
 3) Paste the Repository URL
