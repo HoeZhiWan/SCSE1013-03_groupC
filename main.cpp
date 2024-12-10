@@ -85,10 +85,10 @@ void displayResults(int entryCount, string type[], double weight[], string date[
                     double totalWeight,int paperCount, int glassCount, int metalCount, 
              int plasticCount) 
 {
-    cout << "\n---------------------------------------------------------------------------------------------------------------------------------------------" << endl;
-    cout << setw(8) << "Date" << setw(15) << "Material" << setw(23) << "Weight(kg)/Volume(L)" << setw(14) << "Category"<<setw(25)<<"Total materials"
-         << setw(30) << "Total of each Category(kg)" << setw(29) << "Recycling Percentage(%)" << endl;
-    cout << "---------------------------------------------------------------------------------------------------------------------------------------------" << endl;
+    cout << "\n----------------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
+    cout <<setw(5) << "Date" << setw(16) << "Material" << setw(25) << "Weight(kg)/Volume(L)" << setw(16) << "Category"<<setw(27)<<"Materials in Category"
+         << setw(36) << "Weights in each Category(kg)/(L)" << setw(30) << "Recycling Percentage(%)" << endl;
+    cout << "----------------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
 
     for (int i = 0; i < entryCount; i++) {
         int categoryCount = 0;
@@ -131,10 +131,10 @@ void displayResults(int entryCount, string type[], double weight[], string date[
              << setw(15) << fixed << setprecision(2) << weight[i]
              << setw(28) << category
              << setw(15) << fixed<<setprecision(2) << categoryCount
-             << setw(18) << categoryTotal
+             << setw(25) << categoryTotal
              << setw(35) << fixed<<setprecision(2) << recyclingPercentage<< endl;
     }
-    cout << "---------------------------------------------------------------------------------------------------------------------------------------------" << endl;
+    cout << "----------------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
     cout << "Total Weight of All Materials: " << totalWeight << " kg\n";
 }
 
