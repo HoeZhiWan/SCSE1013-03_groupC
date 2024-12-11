@@ -187,7 +187,7 @@ void environmentalImpact(double materialWeights[], string categories[], double i
 //          Student Name: Md Abdullah                                *
 //          Matrik Number: A24CS4022                                 *
 // *******************************************************************
-
+ 
 void generateRecyclingReport(int entryCount, double totalWeight, double materialWeight[], string categories[])
 {
     cout << "\n***** Recycling Report *****" << endl;
@@ -224,6 +224,12 @@ void generateRecyclingReport(int entryCount, double totalWeight, double material
     for (int i=0; i<4; i++) {
         cout << categories[i] << "\t: " << fixed << setprecision(2) << (materialWeight[i]/totalWeight) * 100 << "%\n";
     }
+   // Recommendations
+    cout << "\nRecommendations:\n";
+    cout << "- Reduce plastic usage by opting for reusable items.\n";
+    cout << "- Promote glass recycling through awareness campaigns.\n";
+    cout << "- Encourage proper recycling of metals with accessible bins.\n";
+    cout << "- Organize community events to improve paper recycling.\n";
 
     cout << "\n***** End of Report *****\n" << endl;
 }
@@ -299,3 +305,6 @@ int main() {
 
     return 0;
 }
+
+
+
