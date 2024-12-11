@@ -52,31 +52,32 @@ void wasteInput(string type[],double weight[],string date[], int &entryCount)
 // *******************************************************************
 void calculateTotals(int entryCount, string type[], double weight[], double materialWeights[], int materialCounts[], double &totalWeight) 
 {
+    totalWeight=0;
+
     for (int i=0;i<4;i++) 
     {
         materialWeights[i]=0;
         materialCounts[i]=0;
     }
-    totalWeight=0;
-
+    
     for (int i=0;i<entryCount;i++) 
     {
-        if (type[i]=="Paper") 
+        if(type[i]=="Paper") 
         {
             materialWeights[0]+=weight[i];
             materialCounts[0]++;
         } 
-        else if (type[i]=="Glass") 
+        else if(type[i]=="Glass") 
         {
             materialWeights[1]+=weight[i];
             materialCounts[1]++;
         } 
-        else if (type[i]=="Metal") 
+        else if(type[i]=="Metal") 
         {
             materialWeights[2]+=weight[i];
             materialCounts[2]++;
         } 
-        else if (type[i]=="Plastic") 
+        else 
         {
             materialWeights[3]+=weight[i];
             materialCounts[3]++;
@@ -88,68 +89,47 @@ void calculateTotals(int entryCount, string type[], double weight[], double mate
 
 void displayResults(int entryCount, string type[], double weight[], string date[], double materialWeights[], int materialCounts[], double totalWeight, string categories[]) 
 {
-    cout<<"\n----------------------------------------------------------------------------------------"<<endl;
-    cout<<setw(8)<<"Date"<<setw(20)<<"Material"<<setw(37)<<"Weight(kg)/Volume(L)"<<endl;
+    double recyclingPercentages[4];
+    int totalMaterials=0;
+    cout<<"----------------------------------------------------------------------------------------"<<endl;
+    cout<<setw(7)<<"Date"<<setw(20)<<"Material"<<setw(30)<<"Weight(kg)/Volume(L)"<<endl;
     cout<<"----------------------------------------------------------------------------------------"<<endl;
 
    for (int i=0;i<entryCount;i++) 
-   {
-        double recyclingPercentage=0;
-        if (type[i]=="Paper") 
-        {
-            recyclingPercentage=(materialWeights[0]/totalWeight)*100;
-        } 
-        else if (type[i]=="Glass") 
-        {
-            recyclingPercentage=(materialWeights[1]/totalWeight)*100;
-        } 
-        else if (type[i]=="Metal") 
-        {
-            recyclingPercentage=(materialWeights[2]/totalWeight)*100;
-        } 
-        else if (type[i]=="Plastic") 
-        {
-            recyclingPercentage=(materialWeights[3]/totalWeight)*100;
-        }
-
+    {
         cout << setw(10)<<date[i]
              << setw(16)<<type[i]
-             << setw(25)<<fixed<<setprecision(2)<<weight[i]<<endl;
+             << setw(20)<<fixed<<setprecision(2)<<weight[i]<<endl;
     }
-
-    string categoryNames[]={"Paper (Recyclable)","Glass (Recyclable)","Metal (Recyclable)","Plastic (Recyclable)"};
-    double recyclingPercentages[4];
 
     for (int i=0;i<4;i++) 
     {
         if(totalWeight>0)
+        {
         recyclingPercentages[i]=(materialWeights[i]/totalWeight)*100; 
+        totalMaterials += materialCounts[i];
+        }
         else
         recyclingPercentages[i] = 0;
     }
 
-    cout << "---------------------------------------------------------------------------------------------" << endl;
+    cout << "---------------------------------------------------------------------------------------------"<<endl;
     cout << "Category Summary (Total): " << endl;
-    cout << "---------------------------------------------------------------------------------------------" << endl;
+    cout << "---------------------------------------------------------------------------------------------"<<endl;
 
     for (int i=0; i<4;i++) 
     {
-        cout <<categoryNames[i]<<": "
-             <<materialCounts[i]<<" materials, "
-             <<fixed<<setprecision(2) << materialWeights[i]<<" kg/L, "
-             <<"Recycling Percentage : "<<fixed<<setprecision(2)<<recyclingPercentages[i]<<"%"<<endl;
+        cout<<setw(10)<<left<<categories[i]               
+            <<": "
+            <<setw(2)<<right<<materialCounts[i]<<" materials, "          
+            <<setw(4)<<fixed<<setprecision(2)<<materialWeights[i]<<"kg/L, "  
+            <<fixed<<setprecision(2)<<"Recycling Percentage: "<<recyclingPercentages[i]<<"%"<<endl;
     }
 
-    cout << "---------------------------------------------------------------------------------------------" << endl;
-    cout << "Total Weight of All Materials: " << totalWeight <<" kg/L"<<endl;
-    
-    int totalMaterials=0;
-    for (int i=0; i<4; i++) 
-    {
-        totalMaterials += materialCounts[i];
-    }
+    cout<<"---------------------------------------------------------------------------------------------"<<endl;
+    cout<<"Total Weight of All Materials: "<<totalWeight<<" kg/L"<<endl;
     cout<<"Total Materials Regardless of Category: "<<totalMaterials<<endl;
-    cout<<"---------------------------------------------------------------------------------------------\n"<<endl;
+    cout<<"---------------------------------------------------------------------------------------------"<<endl;
 }
 
 // *******************************************************************
@@ -243,7 +223,7 @@ int main() {
     string entryDate[MAX_ENTRIES] = {"2024-12-01", "2024-12-02", "2024-12-02", "2024-12-03", "2024-12-04", "2024-12-04", "2024-12-06", "2024-12-07"};
     int entryCount = 8;
     
-    double materialWeights[4] = {0, 0, 0, 0}; 
+    double materialWeights[4] = {0.0, 0.0, 0.0, 0.0}; 
     int materialCounts[4] = {0, 0, 0, 0};
     double totalWeight = 0;
     
