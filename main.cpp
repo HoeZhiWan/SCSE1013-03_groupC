@@ -184,13 +184,59 @@ void environmentalImpact(double materialWeights[], string categories[]) {
 }
 
 // *******************************************************************
-//          Function 4 - Generate Report                             *
+//          Function 4 -                                             *
 //          Student Name: Md Abdullah                                *
 //          Matrik Number: A24CS4022                                 *
 // *******************************************************************
 
-void function4() { // change the name and datta type of function
-    cout << "Function 4" << endl;
+void generateRecyclingReport(int entryCount, double totalWeight, double paperWeight, double glassWeight, double metalWeight, double plasticWeight)
+{
+    cout << "\n***** Recycling Report *****" << endl;
+
+    if (entryCount == 0 || totalWeight == 0) {
+        cout << "No data available to generate the report.\n";
+         cout << "***** End of Report *****\n" << endl;
+        return;}
+
+    double recyclableWeight = paperWeight + glassWeight + metalWeight + plasticWeight;
+   
+
+    cout << "Total Entries: " << entryCount << endl;
+     cout << "Total Weight Processed: " << totalWeight << " kg" << endl;
+    cout << "Recyclable Material Weights:" << endl;
+     cout << "   Paper: " << paperWeight << " kg" << endl;
+    cout << "   Glass: " << glassWeight << " kg" << endl;
+    cout << "   Metal: " << metalWeight << " kg" << endl;
+     cout << "   Plastic: " << plasticWeight << " kg" << endl;
+    
+    // Identify the material with the highest contribution
+    string highestCategory;
+    double highestWeight = paperWeight;
+
+    if (glassWeight > highestWeight) {
+        highestWeight = glassWeight;
+        highestCategory = "Glass";}
+    if (metalWeight > highestWeight) {
+        highestWeight = metalWeight;
+        highestCategory = "Metal";
+        }
+    if (plasticWeight > highestWeight) {
+        highestWeight = plasticWeight;
+        highestCategory = "Plastic";}
+    if (highestWeight == paperWeight) {
+        highestCategory = "Paper";}
+
+    cout << "The material with the highest contribution is: " << highestCategory << " (" << highestWeight << " kg).\n";
+
+    // Proportions of each material
+    cout << "Material Proportions (as % of total waste):\n";
+
+    cout << "   Paper: " << fixed << setprecision(2) << (paperWeight / totalWeight) * 100 << "%\n";
+    cout << "   Glass: " << fixed << setprecision(2) << (glassWeight / totalWeight) * 100 << "%\n";
+    cout << "   Metal: " << fixed << setprecision(2) << (metalWeight / totalWeight) * 100 << "%\n";
+    cout << "   Plastic: " << fixed << setprecision(2) << (plasticWeight / totalWeight) * 100 << "%\n";
+
+    cout << "\n***** End of Report *****\n" << endl;
 }
 
 // *******************************************************************
