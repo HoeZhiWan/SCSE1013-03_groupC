@@ -50,90 +50,107 @@ void wasteInput(string type[],double weight[],string date[], int &entryCount)
 //          Student Name: Bong Zi Shan                               *
 //          Matrik Number: A24CS0231                                 *
 // *******************************************************************
-void calculateTotals(int entryCount, string type[], double weight[], double &paperWeight, double &glassWeight,double &metalWeight, double &plasticWeight, int &paperCount, int &glassCount,int &metalCount, int &plasticCount, double &totalWeight)
+void calculateTotals(int entryCount, string type[], double weight[], double materialWeights[], int materialCounts[], double &totalWeight) 
 {
-    paperWeight = glassWeight = metalWeight = plasticWeight = 0;
-    paperCount = glassCount = metalCount = plasticCount = 0;
-    totalWeight = 0;
+    for (int i=0;i<4;i++) 
+    {
+        materialWeights[i]=0;
+        materialCounts[i]=0;
+    }
+    totalWeight=0;
 
-    for (int i = 0; i < entryCount; i++) {
-        if (type[i] == "Paper") 
-        {paperWeight += weight[i];
-         paperCount++;
-        }
-        else if (type[i] == "Glass") 
+    for (int i=0;i<entryCount;i++) 
+    {
+        if (type[i]=="Paper") 
         {
-        glassWeight += weight[i];
-        glassCount++;
-        }
-        else if (type[i] == "Metal")
+            materialWeights[0]+=weight[i];
+            materialCounts[0]++;
+        } 
+        else if (type[i]=="Glass") 
         {
-        metalWeight += weight[i];
-        metalCount++;
-        }
-        else if (type[i] == "Plastic")
+            materialWeights[1]+=weight[i];
+            materialCounts[1]++;
+        } 
+        else if (type[i]=="Metal") 
         {
-        plasticWeight += weight[i];
-        plasticCount++;
+            materialWeights[2]+=weight[i];
+            materialCounts[2]++;
+        } 
+        else if (type[i]=="Plastic") 
+        {
+            materialWeights[3]+=weight[i];
+            materialCounts[3]++;
         }
 
-        totalWeight += weight[i];
+        totalWeight+=weight[i];
     }
 }
 
-void displayResults(int entryCount, string type[], double weight[], string date[],double paperWeight, double glassWeight, double metalWeight, double plasticWeight,double totalWeight,int paperCount, int glassCount, int metalCount,int plasticCount) 
+void displayResults(int entryCount, string type[], double weight[], string date[], double materialWeights[], int materialCounts[], double totalWeight) 
 {
-    cout << "\n---------------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
-    cout <<setw(5) << "Date" << setw(16) << "Material" << setw(25) << "Weight(kg)/Volume(L)" << setw(16) << "Category"<<setw(27)<<"Materials in Category"
-         << setw(36) << "Weights in each Category(kg)/(L)" << setw(30) << "Recycling Percentage(%)" << endl;
-    cout << "---------------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
+    cout<<"----------------------------------------------------------------------------------------"<<endl;
+    cout<<setw(8)<<"Date"<<setw(20)<<"Material"<<setw(37)<<"Weight(kg)/Volume(L)"<<endl;
+    cout<<"----------------------------------------------------------------------------------------"<<endl;
 
-    for (int i = 0; i < entryCount; i++) {
-        int categoryCount = 0;
-        string category;
-        double categoryTotal = 0;
-        double recyclingPercentage = 0;
-
-        if (type[i] == "Paper") 
+   for (int i=0;i<entryCount;i++) 
+   {
+        double recyclingPercentage=0;
+        if (type[i]=="Paper") 
         {
-            category="Paper(Recyclable)";
-            categoryCount = paperCount;
-            categoryTotal = paperWeight;
-            recyclingPercentage = (paperWeight / totalWeight) * 100;
+            recyclingPercentage=(materialWeights[0]/totalWeight)*100;
         } 
-        else if (type[i] == "Glass") 
+        else if (type[i]=="Glass") 
         {
-            category="Glass(Recyclable)";
-            categoryCount = glassCount;
-            categoryTotal = glassWeight;
-            recyclingPercentage = (glassWeight / totalWeight) * 100;
+            recyclingPercentage=(materialWeights[1]/totalWeight)*100;
         } 
-
-        else if (type[i] == "Metal") 
+        else if (type[i]=="Metal") 
         {
-            category="Metal(Recyclable)";
-            categoryCount = metalCount;
-            categoryTotal = metalWeight;
-            recyclingPercentage = (metalWeight / totalWeight) * 100;
+            recyclingPercentage=(materialWeights[2]/totalWeight)*100;
         } 
-        else if (type[i] == "Plastic") 
+        else if (type[i]=="Plastic") 
         {
-            category="Plastic(Recyclable)";
-            categoryCount = plasticCount;
-            categoryTotal = plasticWeight;
-            recyclingPercentage = (plasticWeight / totalWeight) * 100;
-        }   
+            recyclingPercentage=(materialWeights[3]/totalWeight)*100;
+        }
 
-        cout << setw(10) << date[i] 
-             << setw(12) << type[i]
-             << setw(15) << fixed << setprecision(2) << weight[i]
-             << setw(28) << category
-             << setw(15) << fixed<<setprecision(2) << categoryCount
-             << setw(25) << categoryTotal
-             << setw(35) << fixed<<setprecision(2) << recyclingPercentage<< endl;
+        cout << setw(10)<<date[i]
+             << setw(16)<<type[i]
+             << setw(25)<<fixed<<setprecision(2)<<weight[i]<<endl;
     }
-    cout << "---------------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
-    cout << "Total Weight of All Materials: " << totalWeight << " kg\n";
+
+    string categories[]={"Paper","Glass","Metal","Plastic"};
+    string categoryNames[]={"Paper (Recyclable)","Glass (Recyclable)","Metal (Recyclable)","Plastic (Recyclable)"};
+    double recyclingPercentages[4];
+
+    for (int i=0;i<4;i++) 
+    {
+        if(totalWeight>0)
+        recyclingPercentages[i]=(materialWeights[i]/totalWeight)*100; 
+        else
+        recyclingPercentages[i] = 0;
+    }
+
+    cout << "---------------------------------------------------------------------------------------------" << endl;
+    cout << "Category Summary (Total): " << endl;
+    cout << "---------------------------------------------------------------------------------------------" << endl;
+
+    for (int i=0; i<4;i++) 
+    {
+        cout <<categoryNames[i]<<": "
+             <<materialCounts[i]<<" materials, "
+             <<fixed<<setprecision(2) << materialWeights[i]<<" kg/L, "
+             <<"Recycling Percentage : "<<fixed<<setprecision(2)<<recyclingPercentages[i]<<"%"<<endl;
+    }
+
+    cout << "---------------------------------------------------------------------------------------------" << endl;
+    cout << "Total Weight of All Materials: " << totalWeight <<" kg/L"<<endl;
+    
+    int totalMaterials=0;
+    for (int i=0; i<4; i++) 
+    {
+        totalMaterials += materialCounts[i];
+    }
+    cout<<"Total Materials Regardless of Category: "<<totalMaterials<<endl;
+    cout<<"---------------------------------------------------------------------------------------------"<<endl;
 }
 
 // *******************************************************************
@@ -164,6 +181,7 @@ void function4() { // change the name and datta type of function
 //                                                                   *
 // *******************************************************************
 
+
 void displayMenu() {
     cout << "1. Create an entry." << endl;
     cout << "2. Recycling Calculation." << endl;
@@ -180,8 +198,9 @@ int main() {
     double entryWeight[MAX_ENTRIES] = {0.5, 2.2, 1.6, 0.8, 0.4, 0.7, 2.3, 0.8};
     string entryDate[MAX_ENTRIES] = {"2024-12-01", "2024-12-02", "2024-12-02", "2024-12-03", "2024-12-04", "2024-12-04", "2024-12-06", "2024-12-07"};
     int entryCount = 8;
-    double paperWeight,glassWeight,metalWeight,plasticWeight,totalWeight=0.0;
-    int paperCount, glassCount, metalCount, plasticCount=0;
+    double materialWeights[4] = {0, 0, 0, 0}; 
+    int materialCounts[4] = {0, 0, 0, 0};
+    double totalWeight = 0;
     int choice;
 
     do{
@@ -196,8 +215,9 @@ int main() {
                     break;
 
             case 2: cout << "\n***** Module 2 ******" << endl;
-                    calculateTotals(entryCount, entryType, entryWeight, paperWeight, glassWeight, metalWeight, plasticWeight,paperCount, glassCount, metalCount, plasticCount, totalWeight);
-                    displayResults(entryCount, entryType, entryWeight, entryDate, paperWeight, glassWeight, metalWeight, plasticWeight, totalWeight,paperCount, glassCount, metalCount, plasticCount);
+                    calculateTotals(entryCount, entryType, entryWeight, materialWeights, materialCounts, totalWeight);
+                    displayResults(entryCount, entryType, entryWeight, entryDate, materialWeights, materialCounts, totalWeight);
+
                     cout << "***** Module 2 ******\n" << endl;
                     break;
 
