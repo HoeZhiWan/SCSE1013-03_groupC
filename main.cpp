@@ -134,7 +134,7 @@ void calculateTotals(int entryCount, string type[], double weight[], string date
 //          Matrik Number: A24CS0082                                 *
 // *******************************************************************
 
-void environmentalImpact(double materialWeights[], string categories[]) {
+void environmentalImpact(double materialWeights[], string categories[], double impactValue[], double &totalTreesSaved, double &totalEnergySaved) {
     double impactFactors[] = {0.079, 3.96, 2.33, 0.17};
 
     // sources for impactFactors: 
@@ -145,34 +145,34 @@ void environmentalImpact(double materialWeights[], string categories[]) {
     // https://8billiontrees.com/carbon-offsets-credits/carbon-footprint-of-steel
     // https://sustainability.um.edu.my/ghg-um-2023
 
-    double totalTreesSaved = 0; // plastic & paper tree per kg
-    double totalEnergySaved = 0; // glass & metal kwh per kg
+    totalTreesSaved = 0; // plastic & paper tree per kg
+    totalEnergySaved = 0; // glass & metal kwh per kg
 
     cout << "\n---------------------------------------------------------------------------------------------" << endl;
-    cout << "                                  Environmental Impact Assessment                            " << endl;
+    cout << "                               Environmental Impact Assessment                               " << endl;
     cout << "---------------------------------------------------------------------------------------------" << endl;
     cout << "Categories \t Total Trees/Energy Saved" << endl;
     cout << "---------------------------------------------------------------------------------------------" << endl;
 
     for (int i=0; i<4; i++) {
-        double impactValue = 0;
+        impactValue[i] = 0;
 
         if (categories[i] == "Paper" || categories[i] == "Plastic") {
-            impactValue = materialWeights[i] * impactFactors[i];
+            impactValue[i] = materialWeights[i] * impactFactors[i];
 
             cout << categories[i]
-                << "\t\t  " << fixed << setprecision(2) << impactValue
+                << "\t\t  " << fixed << setprecision(2) << impactValue[i]
                 << "\t trees" << endl;
 
-            totalTreesSaved += materialWeights[i] * impactFactors[i];
+            totalTreesSaved += impactValue[i];
         } else if (categories[i] == "Glass" || categories[i] == "Metal") {
-            impactValue += materialWeights[i] * impactFactors[i];
-
+            impactValue[i] = materialWeights[i] * impactFactors[i];
+            
             cout << categories[i]
-                << "\t\t  " << fixed << setprecision(2) << impactValue 
+                << "\t\t  " << fixed << setprecision(2) << impactValue[i]
                 << "\t kwh of energy" << endl;
 
-            totalEnergySaved += materialWeights[i] * impactFactors[i];
+            totalEnergySaved += impactValue[i];
         }
     }
 
@@ -180,7 +180,6 @@ void environmentalImpact(double materialWeights[], string categories[]) {
     cout << "Total trees saved\t: " << totalTreesSaved << " trees" << endl;
     cout << "Total energy saved\t: " << totalEnergySaved << "kwh" << endl;
     cout << "---------------------------------------------------------------------------------------------\n" << endl;
-
 }
 
 // *******************************************************************
@@ -189,52 +188,42 @@ void environmentalImpact(double materialWeights[], string categories[]) {
 //          Matrik Number: A24CS4022                                 *
 // *******************************************************************
 
-void generateRecyclingReport(int entryCount, double totalWeight, double paperWeight, double glassWeight, double metalWeight, double plasticWeight)
+void generateRecyclingReport(int entryCount, double totalWeight, double materialWeight[], string categories[])
 {
     cout << "\n***** Recycling Report *****" << endl;
 
     if (entryCount == 0 || totalWeight == 0) {
         cout << "No data available to generate the report.\n";
-         cout << "***** End of Report *****\n" << endl;
-        return;}
-
-    double recyclableWeight = paperWeight + glassWeight + metalWeight + plasticWeight;
-   
+        cout << "***** End of Report *****\n" << endl;
+        return;
+    }   
 
     cout << "Total Entries: " << entryCount << endl;
-     cout << "Total Weight Processed: " << totalWeight << " kg" << endl;
+    cout << "Total Weight Processed: " << totalWeight << " kg" << endl;
     cout << "Recyclable Material Weights:" << endl;
-     cout << "   Paper: " << paperWeight << " kg" << endl;
-    cout << "   Glass: " << glassWeight << " kg" << endl;
-    cout << "   Metal: " << metalWeight << " kg" << endl;
-     cout << "   Plastic: " << plasticWeight << " kg" << endl;
+    for (int i=0; i<4; i++) {
+        cout << categories[i] << "\t: " << materialWeight[i] << "kg" << endl;
+    }
     
     // Identify the material with the highest contribution
-    string highestCategory;
-    double highestWeight = paperWeight;
+    string highestCategory = categories[0];
+    double highestWeight = materialWeight[0];
 
-    if (glassWeight > highestWeight) {
-        highestWeight = glassWeight;
-        highestCategory = "Glass";}
-    if (metalWeight > highestWeight) {
-        highestWeight = metalWeight;
-        highestCategory = "Metal";
+    for (int i=1; i<4; i++) {
+        if (materialWeight[i] > highestWeight) {
+            highestCategory = categories[i];
+            highestWeight = materialWeight[i];
         }
-    if (plasticWeight > highestWeight) {
-        highestWeight = plasticWeight;
-        highestCategory = "Plastic";}
-    if (highestWeight == paperWeight) {
-        highestCategory = "Paper";}
+    }
 
     cout << "The material with the highest contribution is: " << highestCategory << " (" << highestWeight << " kg).\n";
 
     // Proportions of each material
     cout << "Material Proportions (as % of total waste):\n";
 
-    cout << "   Paper: " << fixed << setprecision(2) << (paperWeight / totalWeight) * 100 << "%\n";
-    cout << "   Glass: " << fixed << setprecision(2) << (glassWeight / totalWeight) * 100 << "%\n";
-    cout << "   Metal: " << fixed << setprecision(2) << (metalWeight / totalWeight) * 100 << "%\n";
-    cout << "   Plastic: " << fixed << setprecision(2) << (plasticWeight / totalWeight) * 100 << "%\n";
+    for (int i=0; i<4; i++) {
+        cout << categories[i] << "\t: " << fixed << setprecision(2) << (materialWeight[i]/totalWeight) * 100 << "%\n";
+    }
 
     cout << "\n***** End of Report *****\n" << endl;
 }
@@ -265,11 +254,15 @@ int main() {
     string entryDate[MAX_ENTRIES] = {"2024-12-01", "2024-12-02", "2024-12-02", "2024-12-03", "2024-12-04", "2024-12-04", "2024-12-06", "2024-12-07"};
     int entryCount = 8;
     
-    double materialWeights[4] = {0.0, 0.0, 0.0, 0.0}; 
-    int materialCounts[4] = {0, 0, 0, 0};
+    const int MATERIAL_TYPE = 4;
+
+    string categories[MATERIAL_TYPE]={"Paper","Glass","Metal","Plastic"};
+    double materialWeights[MATERIAL_TYPE] = {0.0, 0.0, 0.0, 0.0}; 
+    int materialCounts[MATERIAL_TYPE] = {0, 0, 0, 0};
     double totalWeight=0;
 
-    string categories[]={"Paper","Glass","Metal","Plastic"};
+    double impactValue[MATERIAL_TYPE]= {0.0, 0.0, 0.0, 0.0};
+    double totalTreesSaved = 0, totalEnergySaved = 0; 
 
     int choice;
 
@@ -284,15 +277,15 @@ int main() {
                     cout << "***** Add an entry ******\n" << endl;
                     break;
 
-            case 2: calculateTotals(entryCount, entryType, entryWeight, entryDate,materialWeights, materialCounts, totalWeight,categories); 
+            case 2: calculateTotals(entryCount, entryType, entryWeight, entryDate,materialWeights, materialCounts, totalWeight, categories); 
                     break;
 
-            case 3: environmentalImpact(materialWeights, categories);
+            case 3: environmentalImpact(materialWeights, categories, impactValue, totalTreesSaved, totalEnergySaved);
                     break;
 
-            case 4: cout << "\n***** Module 4 ******" << endl;
-                    function4();
-                    cout << "***** Module 4 ******\n" << endl;
+            case 4: calculateTotals(entryCount, entryType, entryWeight, entryDate,materialWeights, materialCounts, totalWeight, categories);
+                    environmentalImpact(materialWeights, categories, impactValue, totalTreesSaved, totalEnergySaved);
+                    generateRecyclingReport(entryCount, totalWeight, materialWeights, categories);
                     break;
             
             case 5: cout << "Exiting program...";
