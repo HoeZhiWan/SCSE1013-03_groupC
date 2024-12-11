@@ -14,9 +14,9 @@ void wasteInput(string type[],double weight[],string date[], int &entryCount)
 {
     while(true)
     {
-        cout<<"Enter material type (paper/glass/metal/plastic): ";
+        cout<<"Enter material type (Paper/Glass/Metal/Plastic): ";
         cin >> type[entryCount];
-        while(type[entryCount]!="paper" && type[entryCount]!="glass" && type[entryCount]!="metal" && type[entryCount]!="plastic")
+        while(type[entryCount]!="Paper" && type[entryCount]!="Glass" && type[entryCount]!="Metal" && type[entryCount]!="Plastic")
         {
             cout<<"Invalid material type! Please enter again! "<<endl;
             cout<<"Enter material type (paper/glass/metal/plastic): ";
