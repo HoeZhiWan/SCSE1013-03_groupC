@@ -184,7 +184,7 @@ void environmentalImpact(double materialWeights[], string categories[]) {
 }
 
 // *******************************************************************
-//          Function 4 -                                             *
+//          Function 4 -  Generate a Report                          *
 //          Student Name: Md Abdullah                                *
 //          Matrik Number: A24CS4022                                 *
 // *******************************************************************
