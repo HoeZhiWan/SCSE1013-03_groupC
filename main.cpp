@@ -50,9 +50,11 @@ void wasteInput(string type[],double weight[],string date[], int &entryCount)
 //          Student Name: Bong Zi Shan                               *
 //          Matrik Number: A24CS0231                                 *
 // *******************************************************************
-void calculateTotals(int entryCount, string type[], double weight[], double materialWeights[], int materialCounts[], double &totalWeight) 
+void calculateTotals(int entryCount, string type[], double weight[], string date[], double materialWeights[], int materialCounts[], double &totalWeight,string categories[]) 
 {
     totalWeight=0;
+    double recyclingPercentages[4];
+    int totalMaterials=0;
 
     for (int i=0;i<4;i++) 
     {
@@ -85,12 +87,6 @@ void calculateTotals(int entryCount, string type[], double weight[], double mate
 
         totalWeight+=weight[i];
     }
-}
-
-void displayResults(int entryCount, string type[], double weight[], string date[], double materialWeights[], int materialCounts[], double totalWeight, string categories[]) 
-{
-    double recyclingPercentages[4];
-    int totalMaterials=0;
     cout<<"----------------------------------------------------------------------------------------"<<endl;
     cout<<setw(7)<<"Date"<<setw(20)<<"Material"<<setw(30)<<"Weight(kg)/Volume(L)"<<endl;
     cout<<"----------------------------------------------------------------------------------------"<<endl;
@@ -225,8 +221,8 @@ int main() {
     
     double materialWeights[4] = {0.0, 0.0, 0.0, 0.0}; 
     int materialCounts[4] = {0, 0, 0, 0};
-    double totalWeight = 0;
-    
+    double totalWeight=0;
+
     string categories[]={"Paper","Glass","Metal","Plastic"};
 
     int choice;
@@ -242,12 +238,10 @@ int main() {
                     cout << "***** Add an entry ******\n" << endl;
                     break;
 
-            case 2: calculateTotals(entryCount, entryType, entryWeight, materialWeights, materialCounts, totalWeight);
-                    displayResults(entryCount, entryType, entryWeight, entryDate, materialWeights, materialCounts, totalWeight, categories);
+            case 2: calculateTotals(entryCount, entryType, entryWeight, entryDate,materialWeights, materialCounts, totalWeight,categories); 
                     break;
 
-            case 3: calculateTotals(entryCount, entryType, entryWeight, materialWeights, materialCounts, totalWeight);
-                    environmentalImpact(materialWeights, categories);
+            case 3: environmentalImpact(materialWeights, categories);
                     break;
 
             case 4: cout << "\n***** Module 4 ******" << endl;
