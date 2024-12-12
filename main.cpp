@@ -286,7 +286,8 @@ int main() {
             case 2: calculateTotals(entryCount, entryType, entryWeight, entryDate,materialWeights, materialCounts, totalWeight, categories); 
                     break;
 
-            case 3: environmentalImpact(materialWeights, categories, impactValue, totalTreesSaved, totalEnergySaved);
+            case 3: calculateTotals(entryCount, entryType, entryWeight, entryDate,materialWeights, materialCounts, totalWeight, categories); 
+                    environmentalImpact(materialWeights, categories, impactValue, totalTreesSaved, totalEnergySaved);
                     break;
 
             case 4: calculateTotals(entryCount, entryType, entryWeight, entryDate,materialWeights, materialCounts, totalWeight, categories);
