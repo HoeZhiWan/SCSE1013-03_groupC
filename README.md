@@ -18,19 +18,19 @@ Roles : Module 4
 
 ## Flow Chart
 ### Main
-[Main Flow Chart](img/Main.png)
+![Main Flow Chart](img/Main.png?raw=true "Main Flow Chart")
 
 ### Module 1 (Recycling Entry)
-[Module 1: Recycling Entry](img/Function%201.png)
+![Module 1: Recycling Entry](img/Function%201.png?raw=true "Module 1")
 
 ### Module 2 (Calculate Statistics)
-[Module 2: Calculate Statistics](img/Function%202.png)
+![Module 2: Calculate Statistics](img/Function%202.png?raw=true "Module 2")
 
 ### Module 3 (Environmental Impact Assessment)
-[Module 3: Environmental Impact Assessment](img/Function%203.png)
+![Module 3: Environmental Impact Assessment](img/Function%203.png?raw=true "Module 3")
 
 ### Module 4 (Generate a Report)
-[Module 4: Generate a Report](img/Function%204.png)
+![Module 4: Generate a Report](img/Function%204.png?raw=true "Module 4")
 
 ## Instructions to Run the Program
 ### Step 1 ：Clone the Repository
