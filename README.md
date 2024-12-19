@@ -16,7 +16,21 @@ Roles : Module 2 & Documentation
 __Group Member__ : Md Abdullah<br>
 Roles : Module 4
 
+## Flow Chart
+### Main
+[Main Flow Chart](img/Main.png)
 
+### Module 1 (Recycling Entry)
+[Module 1: Recycling Entry](img/Function%201.png)
+
+### Module 2 (Calculate Statistics)
+[Module 2: Calculate Statistics](img/Function%202.png)
+
+### Module 3 (Environmental Impact Assessment)
+[Module 3: Environmental Impact Assessment](img/Function%203.png)
+
+### Module 4 (Generate a Report)
+[Module 4: Generate a Report](img/Function%204.png)
 
 ## Instructions to Run the Program
 ### Step 1 ：Clone the Repository
@@ -25,7 +39,7 @@ Roles : Module 4
 2) Clone the Respository by running:<br> 
 **git clone https://github.com/HoeZhiWan/SCSE1013-03_groupC.git**
 
-3) Navigate to the project directory: <br>
+3) Navigate to the project directory:<br>
 **cd SCSE1013-03_groupC**
 
 ### Step 2: Open VS Code
