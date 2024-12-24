@@ -21,7 +21,7 @@ Roles : Module 4
 ![Main Flow Chart](img/Main.png?raw=true "Main Flow Chart")
 
 ### Module 1 (Recycling Entry)
-![Module 1: Recycling Entry](img/Function%201.png?raw=true "Module 1")
+![Module 1: Recycling Entry](img/GroupC-Function1.png?raw=true "Module 1")
 
 ### Module 2 (Calculate Statistics)
 ![Module 2: Calculate Statistics](img/Function%202.png?raw=true "Module 2")
